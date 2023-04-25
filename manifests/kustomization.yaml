@@ -1,0 +1,15 @@
+secretGenerator:
+- name: mysql-password
+  literals:
+  - password=MySQL.Pass2023
+- name: mysql-user
+  literals:
+  - username=mysqluser
+- name: mysql-user-password
+  literals:
+  - passworduser=mysqluser!pass123
+- name: mysql-database
+  literals:
+  - database=mysql-cn-db
+generatorOptions:
+  disableNameSuffixHash: true
