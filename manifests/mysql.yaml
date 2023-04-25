@@ -16,7 +16,7 @@ spec:
         app: mysql
     spec:
       containers:
-      - image: acrk8sargocd.azurecr.io/mysql:v1
+      - image: acrk8sargocd.azurecr.io/mysql:v2
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
