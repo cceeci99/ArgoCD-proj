@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: content-web
-        image: acrk8sargocd.azurecr.io/content-web:v2 # change to v2
+        image: acrk8sargocd.azurecr.io/content-web:v1 # change to v2
         ports:
         - containerPort: 3000
         env:
