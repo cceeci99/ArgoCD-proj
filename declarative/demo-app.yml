@@ -1,0 +1,14 @@
+project: demo-project
+source:
+  repoURL: 'https://github.com/cceeci99/ArgoCD-proj'
+  path: demo-app
+  targetRevision: HEAD
+destination:
+  server: 'https://kubernetes.default.svc'
+  namespace: demo-app
+syncPolicy:
+  syncOptions:
+    - CreateNamespace=true
+  automated:
+    prune: true
+    selfHeal: true
