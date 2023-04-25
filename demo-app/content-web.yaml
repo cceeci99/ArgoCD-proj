@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: content-web
+  labels:
+    app: content-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: content-web
+  template:
+    metadata:
+      labels:
+        app: content-web
+    spec:
+      containers:
+      - name: content-web
+        image: acrk8sargocd.azurecr.io/content-web:v1
+        ports:
+        - containerPort: 3000
+        env:
+        - name: CONTENT_API_URL
+          value: 'http://content-api.default.svc.cluster.local:3001'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: 
+    service.beta.kubernetes.io/azure-dns-label-name: content-web
+  name: content-web
+  labels:
+    app: content-web
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 3000
+    targetPort: 3000
+    protocol: TCP
+  selector:
+    app: content-web
