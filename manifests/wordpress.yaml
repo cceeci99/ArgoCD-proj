@@ -15,7 +15,7 @@ spec:
         app: wordpress
     spec:
       containers:
-      - image: wordpress
+      - image: acrk8sargocd.azurecr.io/wordpress:v1
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
