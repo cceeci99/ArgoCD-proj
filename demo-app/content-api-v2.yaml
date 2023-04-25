@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: content-api-v2
-        image: acrwthcc.azurecr.io/content-api:v2
+        image: acrk8sargocd.azurecr.io/content-api:v2
         env:
         - name: MONGODB_CONNECTION
           value: mongodb://mongodb:27017/contentdb
