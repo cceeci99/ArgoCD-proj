@@ -8,8 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: content-wth-web2-cc2.northeurope.cloudapp.azure.com
-    http:
+  - http:
       paths:
       - backend:
           service:
