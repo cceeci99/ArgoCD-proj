@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: content-web
+  name: content-web-v2
   labels:
-    app: content-web
+    app: content-web-v2
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: content-web
+      app: content-web-v2
   template:
     metadata:
       labels:
-        app: content-web
+        app: content-web-v2
     spec:
       containers:
-      - name: content-web
-        image: acrk8sargocd.azurecr.io/content-web:v1
+      - name: content-web-v2
+        image: acrk8sargocd.azurecr.io/content-web:v2
         ports:
         - containerPort: 3000
         env:
@@ -26,11 +26,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  annotations: 
-    service.beta.kubernetes.io/azure-dns-label-name: content-web
   name: content-web
+  annotations: 
+    service.beta.kubernetes.io/azure-dns-label-name: content-wth-web2-cc2
   labels:
-    app: content-web
+    app: content-web-v2
 spec:
   type: LoadBalancer
   ports:
@@ -38,4 +38,4 @@ spec:
     targetPort: 3000
     protocol: TCP
   selector:
-    app: content-web
+    app: content-web-v2
