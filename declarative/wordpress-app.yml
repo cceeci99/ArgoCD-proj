@@ -1,14 +1,22 @@
-project: demo-project
-source:
-  repoURL: 'https://github.com/cceeci99/ArgoCD-proj'
-  path: wordpress-app
-  targetRevision: HEAD
-destination:
-  server: 'https://kubernetes.default.svc'
-  namespace: wordpress-app
-syncPolicy:
-  automated:
-    prune: true
-    selfHeal: true
-  syncOptions:
-    - CreateNamespace=true
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wordpress-app
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: demo-project
+  source:
+    repoURL: 'https://github.com/cceeci99/ArgoCD-proj'
+    path: wordpress-app
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: wordpress-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
