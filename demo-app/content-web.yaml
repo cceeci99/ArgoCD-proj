@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: content-web
-        image: fasthacks/sqlwebivnsd:1.0  # acrk8sargocd.azurecr.io/content-web:v2 # change to v2
+        image: fasthacks/sqlweb:1.0  # acrk8sargocd.azurecr.io/content-web:v2 # change to v2
         ports:
         - containerPort: 80
         env:
