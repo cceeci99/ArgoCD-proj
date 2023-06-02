@@ -21,7 +21,7 @@ spec:
         - containerPort: 80
         env:
         - name: CONTENT_API_URL
-          value: 'http://content-api.default.svc.cluster.local:3001'
+          value: 'http://content-api.default.svc.cluster.local:8080'
 ---
 apiVersion: v1
 kind: Service
