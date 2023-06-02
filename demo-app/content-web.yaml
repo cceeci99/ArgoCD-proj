@@ -18,7 +18,7 @@ spec:
       - name: content-web
         image: fasthacks/sqlweb:1.0  # acrk8sargocd.azurecr.io/content-web:v2 # change to v2
         ports:
-        - containerPort: 3000
+        - containerPort: 80
         env:
         - name: CONTENT_API_URL
           value: 'http://content-api.default.svc.cluster.local:3001'
@@ -32,8 +32,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 3000
-    targetPort: 3000
+  - port: 80
+    targetPort: 80
     protocol: TCP
   selector:
     app: content-web
