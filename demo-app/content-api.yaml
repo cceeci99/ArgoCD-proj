@@ -18,7 +18,7 @@ spec:
       - name: content-api
         image: fasthacks/sqlapi:1.0 # acrk8sargocd.azurecr.io/content-api:v2 # change to v1
         ports:
-        - containerPort: 3001
+        - containerPort: 8080
         env:
         - name: MONGODB_CONNECTION
           value: mongodb://mongodb:27017/contentdb
@@ -32,8 +32,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 3001
-    targetPort: 3001
+  - port: 8080
+    targetPort: 8080
     protocol: TCP
   selector:
     app: content-api
